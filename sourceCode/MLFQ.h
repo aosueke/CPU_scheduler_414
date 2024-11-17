@@ -12,7 +12,7 @@ private:
     std::queue<Process*> que1; // high priority queue
     std::queue<Process*> que2; // med priority queue
     std::queue<Process*> que3; // low priority queue
-    std::vector<Process> processes;
+    std::vector<Process> All_processes;
 
 public:
     Multilevel_Feedback_Queue(int tq1, int tq2);
