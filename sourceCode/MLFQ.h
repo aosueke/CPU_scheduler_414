@@ -1,7 +1,7 @@
 #ifndef MLFQ_H
 #define MLFQ_H
 
-#include "process.h"
+#include "processInfo.h"
 #include <vector>
 #include <queue>
 
