@@ -9,7 +9,7 @@ void Multilevel_Feedback_Queue::addProcess(const Process& new_process) {
 }
 
 void Multilevel_Feedback_Queue::run() {
-    int current_time = 0;
+    int curr_time = 0; //current time
 
     auto execute_Queue = [&](std::queue<Process*>& que, int timeQuantum) {
         int quantum_used = 0;
@@ -19,18 +19,18 @@ void Multilevel_Feedback_Queue::run() {
             que.pop();
 
             // Recording response_time of first execution
-            if (proc->response_time == -1) {
-                proc->response_time = current_time - proc->arrival_time;
+            if (proc->respo_time == -1) {
+                proc->respo_time = curr_time - proc->arr_time;
             }
             
-            int execTime = std::min(timeQuantum, proc->remaining_time); // execution time
-            proc->remaining_time -= execTime;
-            current_time += execTime;
+            int execTime = std::min(timeQuantum, proc->remain_time); // execution time
+            proc->remain_time -= execTime;
+            curr_time += execTime;
 
-            if (proc->remaining_time == 0) {
-                proc->completed = true;
-                proc->turnaround_time = current_time - proc->arrival_time;
-                proc->waiting_time = proc->turnaround_time - proc->burst_time;
+            if (proc->remain_time == 0) {
+                proc->is_completed = true;
+                proc->turnarnd_time = curr_time - proc->arr_time;
+                proc->wait_time = proc->turnarnd_time - proc->burst_time;
             } else {
                 // Move to the next queue
                 if (que == que1) {
