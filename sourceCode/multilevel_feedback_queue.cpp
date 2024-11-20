@@ -41,3 +41,19 @@ void Multilevel_Feedback_Queue::run() {
             }
         }
     };
+  // executing processes from queues (priority order)
+    execute_Queue(que1, timeQuantum1);
+    execute_Queue(que2, timeQuantum2);
+
+    // running remaining processes in queue 3 till completion
+    while (!que3.empty()) {
+        Process* proc = que3.front();
+        que3.pop();
+
+        proc->remain_time = 0;
+        curr_time += proc->remain_time;
+
+        proc->turnarnd_time = curr_time - proc->arr_time;
+        proc->wait_time = proc->turnarnd_time - proc->burst_time;
+    }
+}
