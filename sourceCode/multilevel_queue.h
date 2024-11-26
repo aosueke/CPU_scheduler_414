@@ -1,7 +1,7 @@
 #ifndef MULTILEVEL_QUEUE_H
 #define MULTILEVEL_QUEUE_H
 
-#include "process.h"
+#include "processInfo.h"
 #include <vector>
 
 class MultilevelQueueScheduler {
