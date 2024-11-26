@@ -60,15 +60,19 @@ void Multilevel_Feedback_Queue::run() {
 void MultilevelFeedbackQueue::printStats() {
     double avgWaitTime = 0, avg_turnarnd_time = 0;
 
-    std::cout << "\nMultilevel Feedback Queue Scheduling Results:\n";
+    std::cout << "\nResults of Multilevel Feedback Queue Scheduling:\n";
     std::cout << "ID\tArrival\tBurst\tWaiting\tTurnaround\tResponse\n";
 
-    for (const auto& process : All_processes) {
-        avgWaitTime += process.wait_time;
-        avg_turnarnd_time += process.turnarnd_time;
+    for (const auto& proc : All_processes) {
+        avgWaitTime += proc.wait_time;
+        avg_turnarnd_time += proc.turnarnd_time;
 
-        std::cout << process.id << "\t" << process.arr_time << "\t"
-                  << process.burst_time << "\t" << process.wait_time << "\t"
-                  << process.turnarnd_time << "\t\t" << process.respo_time << "\n";
+        std::cout << proc.id << "\t" << proc.arr_time << "\t"
+                  << proc.burst_time << "\t" << proc.wait_time << "\t"
+                  << proc.turnarnd_time << "\t\t" << proc.respo_time << "\n";
     }
+    std::cout << "\nAverage Waiting Time: " << avgWaitTime / All_processes.size() << "\n";
+    std::cout << "Average Turnaround Time: " << avg_turnarnd_time / All_processes.size() << "\n";
+}
+
 
