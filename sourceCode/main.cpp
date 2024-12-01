@@ -34,3 +34,20 @@ int main() {
         
                 mq.run();
                 mq.printStats();
+    }
+    else if (choice == 4) {
+        int tq1, tq2;
+        std::cout << "Enter time quantum for Queue 1: ";
+        std::cin >> tq1;
+        std::cout << "Enter time quantum for Queue 2: ";
+        std::cin >> tq2;
+
+        MultilevelFeedbackQueueScheduler mfq(tq1, tq2);
+
+        int num_process;
+        std::cout << "Enter number of processes: ";
+        std::cin >> num_process;
+
+        for (int i = 0; i < num_process; ++i) {
+            int arrival, burst;
+            std::
