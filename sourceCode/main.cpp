@@ -19,3 +19,18 @@ int main() {
         int num_process;
         std::cout << "Enter number of processes: ";
         std::cin >> num_process;
+        for (int i = 0; i < num_process; ++i) {
+                    int arrival, burst, queue_level;
+                    std::cout << "Process " << i + 1 << ":\n";
+                    std::cout << "Arrival time: ";
+                    std::cin >> arrival;
+                    std::cout << "Burst time: ";
+                    std::cin >> burst;
+                    std::cout << "Queue level (1 = High, 2 = Low): ";
+                    std::cin >> queue_level;
+        
+                    mq.addProcess(Process(i + 1, arrival, burst), queue_level);
+                }
+        
+                mq.run();
+                mq.printStats();
