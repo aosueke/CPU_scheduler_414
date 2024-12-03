@@ -1,6 +1,6 @@
 # CPU_scheduler_414
 #### **Advanced CPU Scheduler**
-The **Advanced CPU Scheduler** simulates multiple CPU scheduling algorithms: Round Robin, Priority Scheduling (preemptive/non-preemptive), Multilevel Queue, and Multilevel Feedback Queue. It provides detailed performance metrics for testing and analysis.
+The **Advanced CPU Scheduler** simulates multiple CPU scheduling algorithms: Round Robin, Priority Scheduling (preemptive & non-preemptive), Multilevel Queue, and Multilevel Feedback Queue. It provides detailed performance metrics for testing and analysis.
 
 ---
 **Features**
@@ -24,7 +24,7 @@ The **Advanced CPU Scheduler** simulates multiple CPU scheduling algorithms: Rou
 
 1. Clone the repository:
    ```bash
-   git clone [<repository-url>](https://github.com/aosueke/CPU_scheduler_414.git)
+   git clone https://github.com/aosueke/CPU_scheduler_414.git
    cd CPU_scheduler_414
    ```
 
