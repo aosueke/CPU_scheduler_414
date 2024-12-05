@@ -35,7 +35,7 @@ The **Advanced CPU Scheduler** simulates multiple CPU scheduling algorithms: Rou
 
 3. Run program:
    ```bash
-   ./CPUscheduler
+   ./scheduler
    ```
 
 4. Clean the project:
