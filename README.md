@@ -37,10 +37,56 @@ The **Advanced CPU Scheduler** simulates multiple CPU scheduling algorithms: Rou
    ```bash
    ./scheduler
    ```
-
-4. Clean the project:
+4. Clean up the project:
    ```bash
    make clean
    ```
+
+---
+
+#### **Usage Examples**
+
+1. **Run Round Robin Scheduling:**
+   - Input the number of processes, their arrival times, burst times, and the time quantum.
+
+2. **Run Priority Scheduling:**
+   - Select either preemptive or non-preemptive mode, then input process attributes (priority, arrival time, burst time).
+
+3. **Run Multilevel Queue Scheduling:**
+   - Assign processes to specific queues based on priority and execute them.
+
+4. **Run Multilevel Feedback Queue Scheduling:**
+   - Configure time quantum values for each queue and add processes dynamically.
+
+---
+
+#### **Design Decisions**
+
+1. **Modular Design:**
+   - Each scheduling algorithm is implemented in a separate class for scalability and maintainability.
+2. **Dynamic Process Handling:**
+   - Processes are stored in vectors or queues, allowing dynamic addition.
+3. **Standard Libraries:**
+   - Used `std::vector`, `std::queue`, and modern C++17 features for efficient data handling.
+
+---
+
+#### **Known Limitations**
+
+1. **Multilevel Queue Priority:**
+   - Assumes fixed priorities for queues; no dynamic priority adjustments.
+2. **No Preemption in Multilevel Queue:**
+   - Once a process starts in a lower-priority queue, higher-priority queues are not checked for newly arrived processes.
+3. **Visualization:**
+   - Execution visualization is text-based; GUI support is not included.
+4. **Error Handling:**
+   - Limited error checks for incorrect user inputs (e.g., invalid priority or negative burst times).
+
+---
+
+#### **Future Enhancements**
+- Add support for real-time scheduling algorithms (e.g., EDF).
+- Improve the user interface for better usability.
+- Incorporate logging for analysis over large datasets.
 
 ---
