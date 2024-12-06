@@ -8,17 +8,15 @@ TARGET = ../scheduler  # The output binary will be placed in the parent director
 # Source and Header File Locations
 SRCS = main.cpp \
        round_robin.cpp \
-       priority_scheduler.cpp \
-       preemptive_priority_scheduler.cpp \
-       non_preemptive_priority_scheduler.cpp \
+       preemptive_priority_scheduler.cpp \  # Include preemptive version
+       non_preemptive_priority_scheduler.cpp \  # Include non-preemptive version
        multilevel_queue.cpp \
        MLFQ.cpp
 
 HEADERS = processInfo.h \
           round_robin.h \
-          priority_scheduler.h \
-          preemptive_priority_scheduler.h \
-          non_preemptive_priority_scheduler.h \
+          preemptive_priority_scheduler.h \  # Include preemptive header
+          non_preemptive_priority_scheduler.h \  # Include non-preemptive header
           multilevel_queue.h \
           MLFQ.h
 
