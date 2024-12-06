@@ -8,15 +8,15 @@ TARGET = ../scheduler  # The output binary will be placed in the parent director
 # Source and Header File Locations
 SRCS = main.cpp \
        round_robin.cpp \
-       preemptive_priority_scheduler.cpp \  # Include preemptive version
-       non_preemptive_priority_scheduler.cpp \  # Include non-preemptive version
+       preemptive_priority_scheduler.cpp \
+       non_preemptive_priority_scheduler.cpp \
        multilevel_queue.cpp \
        MLFQ.cpp
 
 HEADERS = processInfo.h \
           round_robin.h \
-          preemptive_priority_scheduler.h \  # Include preemptive header
-          non_preemptive_priority_scheduler.h \  # Include non-preemptive header
+          preemptive_priority_scheduler.h \
+          non_preemptive_priority_scheduler.h \
           multilevel_queue.h \
           MLFQ.h
 
@@ -28,11 +28,11 @@ all: $(TARGET)
 
 # Link the executable
 $(TARGET): $(OBJS)
-	$(CXX) $(LDFLAGS) -o $(TARGET) $(OBJS)
+	$(CXX) $(LDFLAGS) -o $(TARGET) $(OBJS)  # <-- Indented with a TAB, not spaces
 
 # Compile source files to object files
 %.o: %.cpp $(HEADERS)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@  # <-- Indented with a TAB, not spaces
 
 # Phony targets
 .PHONY: all clean
@@ -40,8 +40,8 @@ all: $(TARGET)
 
 # Clean up build files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET)  # <-- Indented with a TAB, not spaces
 
 # Run Rule
 run: $(TARGET)
-	./$(TARGET)
+	./$(TARGET)  # <-- Indented with a TAB, not spaces
