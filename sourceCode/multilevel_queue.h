@@ -10,9 +10,9 @@ private:
   std::vector<ProcessInfo> queue2;
 
 public:
-  void addProcess(const ProcessInfo& process, int queue_level);
-  void run();
-  void printStats90:
+  void addProcess(const ProcessInfo& process, int queue_level); // Adds a process to a specific queue
+  void run();  // Executes the scheduling algorithm
+  void printStats(); // Corrected the function declaration here
 };
 
 #endif
