@@ -3,7 +3,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
 
 # Target Executable
-TARGET = ../scheduler  # The output binary will be placed in the parent directory
+TARGET = ../scheduler  # The output binary 
 
 # Source and Header File Locations
 SRCS = main.cpp \
