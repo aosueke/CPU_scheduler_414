@@ -94,7 +94,7 @@ int main() {
         std::cout << "Enter time quantum for Queue 2: ";
         std::cin >> tq2;
 
-        // Change to MultilevelQueueScheduler if this is a typo
+        // Create the MultilevelQueueScheduler object with time quantum values
         MultilevelQueueScheduler mfq(tq1, tq2);
 
         int num_process;
