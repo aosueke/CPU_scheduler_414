@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-void MultilevelQueueScheduler::addProcess(const Process& process, int queue_level) {
+void MultilevelQueueScheduler::addProcess(const ProcessInfo& process, int queue_level) {
   if (queue_level == 1) {
     queue1.push_back(process);
   } else if (queue_level == 2) {
@@ -11,7 +11,7 @@ void MultilevelQueueScheduler::addProcess(const Process& process, int queue_leve
 }
 
 void MultilevelQueueScheduler::run() {
-  auto executeQueue = [](std::vector<Process>& queue, int& current_time) {
+  auto executeQueue = [](std::vector<ProcessInfo>& queue, int& current_time) {
     for (auto& process : queue) {
       if (!process.completed) {
         //Simulate Execution
@@ -34,7 +34,7 @@ void MultilevelQueueScheduler::run() {
 }
 
 void MultilevelQueueScheduler::printStats() {
-  auto printQueueStats = [](const std::vector<Process>& queue) {
+  auto printQueueStats = [](const std::vector<ProcessInfo>& queue) {
     double avg_waiting_time = 0, avg_turnaround_time = 0;
 
     for (const auto& process : queue) {
@@ -43,7 +43,7 @@ void MultilevelQueueScheduler::printStats() {
 
       std::cout << process.id << "\t" << process.arrival_time << "\t"
         << process.burst_time << "\t" << process.waiting_time << "\t"
-        << pocess.turnaround_time << "\t\t" << process.response_time << "\n";
+        << process.turnaround_time << "\t\t" << process.response_time << "\n";
     }
 
     std::cout << "\nAverage Waiting Time: " << avg_waiting_time / queue.size() << "\n";
