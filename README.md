@@ -90,3 +90,12 @@ The **Advanced CPU Scheduler** simulates multiple CPU scheduling algorithms: Rou
 - Incorporate logging for analysis over large datasets.
 
 ---
+
+#### **References**
+- GeeksForGeeks
+  https://www.geeksforgeeks.org/multilevel-feedback-queue-scheduling-mlfq-cpu-scheduling/
+- Medium page about Multilevel Feedback Queue
+  https://medium.com/@francescofranco_39234/multilevel-feedback-queue-3ae862436a95
+
+
+---
