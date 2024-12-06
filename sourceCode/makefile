@@ -15,6 +15,7 @@ SRCS = main.cpp \
 
 HEADERS = processInfo.h \
           round_robin.h \
+	  priority_scheduler.h \
           preemptive_priority_scheduler.h \
           non_preemptive_priority_scheduler.h \
           multilevel_queue.h \
