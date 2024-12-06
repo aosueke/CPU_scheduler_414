@@ -79,7 +79,9 @@ int main() {
             std::cout << "Queue level (1 = High, 2 = Low): ";
             std::cin >> queue_level;
 
-            mq.addProcess(Process(i + 1, arrival, burst), queue_level);
+            // Convert Process to ProcessInfo before adding
+            ProcessInfo pinfo(i + 1, arrival, burst, queue_level);
+            mq.addProcess(pinfo, queue_level);
         }
 
         mq.run();
@@ -92,7 +94,8 @@ int main() {
         std::cout << "Enter time quantum for Queue 2: ";
         std::cin >> tq2;
 
-        MultilevelFeedbackQueueScheduler mfq(tq1, tq2);
+        // Change to MultilevelQueueScheduler if this is a typo
+        MultilevelQueueScheduler mfq(tq1, tq2);
 
         int num_process;
         std::cout << "Enter number of processes: ";
@@ -106,7 +109,9 @@ int main() {
             std::cout << "Burst time: ";
             std::cin >> burst;
 
-            mfq.addProcess(Process(i + 1, arrival, burst));
+            // Convert Process to ProcessInfo before adding
+            ProcessInfo pinfo(i + 1, arrival, burst, 0);  // Assuming priority is 0 for this case
+            mfq.addProcess(pinfo, 0);
         }
 
         mfq.run();
