@@ -6,13 +6,13 @@
 RoundRobinScheduler::RoundRobinScheduler(int quantum) : time_quantum(quantum) {}
 
 // Add a new process to the scheduler
-void RoundRobinScheduler::addProcess(const Process& process) {
+void RoundRobinScheduler::addProcess(const ProcessInfo& process) {
     processes.push_back(process);
 }
 
 // Run round robin scheduling
 void RoundRobinScheduler::run() {
-    std::queue<Process*> ready_queue; // Queue for processes ready to run
+    std::queue<ProcessInfo*> ready_queue; // Queue for processes ready to run
 
     // Push all processes into the ready queue
     for (auto& process : processes) {
@@ -22,7 +22,7 @@ void RoundRobinScheduler::run() {
     int current_time = 0; // Current time of execution
 
     while (!ready_queue.empty()) {
-        Process* process = ready_queue.front(); // Get the first process in the queue
+        ProcessInfo* process = ready_queue.front(); // Get the first process in the queue
         ready_queue.pop(); // Remove it from the queue
 
         // If it's the first time this process runs, record its response time
