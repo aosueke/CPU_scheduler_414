@@ -6,11 +6,11 @@
 
 class MultilevelQueueScheduler {
 private:
-  std::vector<Process> queue1;
-  std::vector<Process> queue2;
+  std::vector<ProcessInfo> queue1;
+  std::vector<ProcessInfo> queue2;
 
 public:
-  void addProcess(const Process& process, int queue_level);
+  void addProcess(const ProcessInfo& process, int queue_level);
   void run();
   void printStats90:
 };
