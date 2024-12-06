@@ -3,39 +3,38 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
 
 # Target Executable
-TARGET = scheduler
+TARGET = ../scheduler  # The output binary will be placed in the parent directory
 
 # Source and Header File Locations
-SRC_DIR = sourceCode
-SRCS = $(SRC_DIR)/main.cpp \
-       $(SRC_DIR)/round_robin.cpp \
-       $(SRC_DIR)/priority_scheduler.cpp \
-       $(SRC_DIR)/preemptive_priority_scheduler.cpp \
-       $(SRC_DIR)/non_preemptive_priority_scheduler.cpp \
-       $(SRC_DIR)/multilevel_queue.cpp \
-       $(SRC_DIR)/MLFQ.cpp
+SRCS = main.cpp \
+       round_robin.cpp \
+       priority_scheduler.cpp \
+       preemptive_priority_scheduler.cpp \
+       non_preemptive_priority_scheduler.cpp \
+       multilevel_queue.cpp \
+       MLFQ.cpp
 
-HEADERS = $(SRC_DIR)/processInfo.h \
-          $(SRC_DIR)/round_robin.h \
-          $(SRC_DIR)/priority_scheduler.h \
-          $(SRC_DIR)/preemptive_priority_scheduler.h \
-          $(SRC_DIR)/non_preemptive_priority_scheduler.h \
-          $(SRC_DIR)/multilevel_queue.h \
-          $(SRC_DIR)/MLFQ.h
+HEADERS = processInfo.h \
+          round_robin.h \
+          priority_scheduler.h \
+          preemptive_priority_scheduler.h \
+          non_preemptive_priority_scheduler.h \
+          multilevel_queue.h \
+          MLFQ.h
 
 # Object Files
 OBJS = $(SRCS:.cpp=.o)
 
-# Default target
+# Default Target
 all: $(TARGET)
 
 # Link the executable
 $(TARGET): $(OBJS)
-    $(CXX) $(LDFLAGS) -o $(TARGET) $(OBJS)
+	$(CXX) $(LDFLAGS) -o $(TARGET) $(OBJS)
 
 # Compile source files to object files
 %.o: %.cpp $(HEADERS)
-    $(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Phony targets
 .PHONY: all clean
@@ -43,7 +42,7 @@ all: $(TARGET)
 
 # Clean up build files
 clean:
-    rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET)
 
 # Run Rule
 run: $(TARGET)
