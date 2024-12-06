@@ -8,11 +8,11 @@
 class RoundRobinScheduler {
 private:
     int time_quantum; // Time quantum for round-robin
-    std::vector<Process> processes; // List of all processes
+    std::vector<ProcessInfo> processes; // List of all processes
 
 public:
     RoundRobinScheduler(int quantum); // Constructor to set time quantum
-    void addProcess(const Process& process); // Add new process
+    void addProcess(const ProcessInfo& process); // Add new process
     void run(); // Run the round robin scheduling
     void printStats(); // Print process stats (waiting, turnaround, etc.)
 };
