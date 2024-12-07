@@ -15,11 +15,11 @@ void MultilevelQueueScheduler::run() {
     for (auto& process : queue) {
       if (!process.is_completed) {
         //Simulate Execution
-        process.response_time = current_time - process.arrival_time;
+        process.respo_time = current_time - process.arr_time;
         current_time += process.burst_time;
-        process.turnaround_time = curent_time - process.arrival_time;
-        process.waiting_time = process.turnaround_time - process.burst_time;
-        process.completed = true;
+        process.turnarnd_time = curent_time - process.arr_time;
+        process.wait_time = process.turnarnd_time - process.burst_time;
+        process.is_completed = true;
       }
     }
   };
@@ -41,12 +41,12 @@ void MultilevelQueueScheduler::printStats() {
     double avg_waiting_time = 0, avg_turnaround_time = 0;
 
     for (const auto& process : queue) {
-      avg_waiting_time += process.waiting_time;
-      avg_turnaround_time += process.turnaround_time;
+      avg_waiting_time += process.wait_time;
+      avg_turnaround_time += process.turnarnd_time;
 
-      std::cout << process.id << "\t" << process.arrival_time << "\t"
-        << process.burst_time << "\t" << process.waiting_time << "\t"
-        << process.turnaround_time << "\t\t" << process.response_time << "\n";
+      std::cout << process.id << "\t" << process.arr_time << "\t"
+        << process.burst_time << "\t" << process.wait_time << "\t"
+        << process.turnarnd_time << "\t\t" << process.respo_time << "\n";
     }
 
     std::cout << "\nAverage Waiting Time: " << avg_waiting_time / queue.size() << "\n";
