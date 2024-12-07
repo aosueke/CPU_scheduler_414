@@ -14,11 +14,11 @@ void Multilevel_Feedback_Queue::addProcess(const ProcessInfo& new_process) {
 void Multilevel_Feedback_Queue::run() {
     int curr_time = 0; //current time
 
-    auto execute_Queue = [&](std::queue<Process*>& que, int timeQuantum) {
+    auto execute_Queue = [&](std::queue<ProcessInfo*>& que, int timeQuantum) {
 
         while (!que.empty()) {
             ProcessInfo* proc = que.front();
-            execute_que.pop();
+            que.pop();
 
             // Recording response_time of first execution
             if (proc->respo_time == -1) {
@@ -65,16 +65,14 @@ void MultilevelFeedbackQueueScheduler::printStats() {
     std::cout << "\nResults of Multilevel Feedback Queue Scheduling:\n";
     std::cout << "ID\tArrival\tBurst\tWaiting\tTurnaround\tResponse\n";
 
-    for (const auto& proc : All_processes) {
-        avgWaitTime += proc.wait_time;
-        avg_turnarnd_time += proc.turnarnd_time;
+    for (const auto& new_process : All_processes) {
+        avgWaitTime += new_process.wait_time;
+        avg_turnarnd_time += new_process.turnarnd_time;
 
-        std::cout << proc.id << "\t" << proc.arr_time << "\t"
-                  << proc.burst_time << "\t" << proc.wait_time << "\t"
-                  << proc.turnarnd_time << "\t\t" << proc.respo_time << "\n";
+        std::cout << new_process.id << "\t" << new_process.arr_time << "\t"
+                  << new_process.burst_time << "\t" << new_process.wait_time << "\t"
+                  << new_process.turnarnd_time << "\t\t" << new_process.respo_time << "\n";
     }
     std::cout << "\nAverage Waiting Time: " << avgWaitTime / All_processes.size() << "\n";
     std::cout << "Average Turnaround Time: " << avg_turnarnd_time / All_processes.size() << "\n";
 }
-
-
