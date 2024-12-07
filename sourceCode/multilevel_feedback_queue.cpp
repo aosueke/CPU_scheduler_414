@@ -35,9 +35,9 @@ void Multilevel_Feedback_Queue::run() {
                 proc->wait_time = proc->turnarnd_time - proc->burst_time;
             } else {
                 // Move to the next queue
-                if (que == que1) {
+                 if (que.size() == que1.size()) {
                     que2.push(proc);
-                } else if (que == que2) {
+                } else if (que.size() == que2.size()) {
                     que3.push(proc);
                 }
             }
