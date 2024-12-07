@@ -12,7 +12,6 @@ void Multilevel_Feedback_Queue::run() {
     int curr_time = 0; //current time
 
     auto execute_Queue = [&](std::queue<Process*>& que, int timeQuantum) {
-       // int quantum_used = 0;
 
         while (!que.empty()) {
             Process* proc = que.front();
