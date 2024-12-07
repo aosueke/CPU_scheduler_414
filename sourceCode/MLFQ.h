@@ -7,8 +7,8 @@
 
 class Multilevel_Feedback_Queue{
 private:
-    int tq1; // Queue 1 time quantum
-    int tq2; // Queue 2 time quantum
+    int timeQuantum1; // Queue 1 time quantum
+    int timeQuantum2; // Queue 2 time quantum
     std::queue<ProcessInfo*> que1; // high priority queue
     std::queue<ProcessInfo*> que2; // med priority queue
     std::queue<ProcessInfo*> que3; // low priority queue
