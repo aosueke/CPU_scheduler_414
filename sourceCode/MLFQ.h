@@ -18,7 +18,7 @@ public:
     Multilevel_Feedback_Queue(int tq1, int tq2);
     void addProcess(const ProcessInfo& new_process);
     void run();
-    void printProcStats();
+    void printStats();
 };
 
 #endif
