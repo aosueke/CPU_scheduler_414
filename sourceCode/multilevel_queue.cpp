@@ -34,6 +34,9 @@ void MultilevelQueueScheduler::run() {
 }
 
 void MultilevelQueueScheduler::printStats() {
+  std::cout << "Queue 1 size: " << queue1.size() << "\n";
+  std::cout << "Queue 2 size: " << queue2.size() << "\n";
+  
   auto printQueueStats = [](const std::vector<ProcessInfo>& queue) {
     double avg_waiting_time = 0, avg_turnaround_time = 0;
 
