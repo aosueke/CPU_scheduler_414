@@ -17,7 +17,7 @@ void Multilevel_Feedback_Queue::run() {
     auto execute_Queue = [&](std::queue<Process*>& que, int timeQuantum) {
 
         while (!que.empty()) {
-            addProcess proc = que.front();
+            ProcessInfo* proc = que.front();
             que.pop();
 
             // Recording response_time of first execution
@@ -49,7 +49,7 @@ void Multilevel_Feedback_Queue::run() {
 
     // running remaining processes in queue 3 till completion
     while (!que3.empty()) {
-        Process* proc = que3.front();
+        ProcessInfo* proc = que3.front();
         que3.pop();
 
         proc->remain_time = 0;
@@ -59,7 +59,7 @@ void Multilevel_Feedback_Queue::run() {
         proc->wait_time = proc->turnarnd_time - proc->burst_time;
     }
 }
-void MultilevelFeedbackQueue::printStats() {
+void MultilevelFeedbackQueueScheduler::printStats() {
     double avgWaitTime = 0, avg_turnarnd_time = 0;
 
     std::cout << "\nResults of Multilevel Feedback Queue Scheduling:\n";
