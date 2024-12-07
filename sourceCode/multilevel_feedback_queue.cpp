@@ -16,9 +16,9 @@ void Multilevel_Feedback_Queue::run() {
 
     auto execute_Queue = [&](std::queue<Process*>& que, int timeQuantum) {
 
-        while (!execute_Queue.empty()) {
-            ProcessInfo* proc = execute_Queue.front();
-            execute_Queue.pop();
+        while (!que.empty()) {
+            ProcessInfo* proc = que.front();
+            execute_que.pop();
 
             // Recording response_time of first execution
             if (proc->respo_time == -1) {
