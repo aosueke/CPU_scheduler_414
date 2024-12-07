@@ -1,10 +1,10 @@
 #include "MLFQ.h"
 #include <iostream>
 
-MultilevelFeedbackQueue::MultilevelFeedbackQueueScheduler(int tq1, int tq2) : timeQuantum1(tq1), timeQuantum2(tq2) {}
+MultilevelFeedbackQueueScheduler::MultilevelFeedbackQueueScheduler(int tq1, int tq2) : timeQuantum1(tq1), timeQuantum2(tq2) {}
 
-void MultilevelFeedbackQueue::addProcess(const ProcessInfo& new_process) {
-    All_processes.push_back(new_process);
+void MultilevelFeedbackQueueScheduler::addProcess(const ProcessInfo& new_process) {
+    new_process.push_back(new_process);
     que1.push(&All_processes.back());
 }
 
