@@ -17,7 +17,32 @@ int main() {
     std::cout << "Choose a scheduling algorithm: ";
     std::cin >> choice;
 
-    if (choice == 2) {
+     if (choice == 1) {
+        int quantum;
+        std::cout << "Enter time quantum for Round Robin: ";
+        std::cin >> quantum;
+
+        RoundRobinScheduler rr(quantum);
+
+        int num_processes;
+        std::cout << "Enter number of processes: ";
+        std::cin >> num_processes;
+
+        for (int i = 0; i < num_processes; ++i) {
+            int arrival, burst;
+            std::cout << "Process " << i + 1 << ":\n";
+            std::cout << "Arrival time: ";
+            std::cin >> arrival;
+            std::cout << "Burst time: ";
+            std::cin >> burst;
+
+            rr.addProcess(Process(i + 1, arrival, burst));
+        }
+
+        rr.run();
+        rr.printStats();
+    }
+    else if (choice == 2) {
         PreemptivePriorityScheduler scheduler;
 
         int num_process;
@@ -34,7 +59,7 @@ int main() {
             std::cout << "Priority (lower is higher priority): ";
             std::cin >> priority;
 
-            scheduler.addProcess(Process(i + 1, arrival, burst, priority));
+            scheduler.addProcess(ProcessInfo(i + 1, arrival, burst, priority));
         }
 
         scheduler.run();
