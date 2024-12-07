@@ -17,7 +17,7 @@ void MultilevelQueueScheduler::run() {
         //Simulate Execution
         process.respo_time = current_time - process.arr_time;
         current_time += process.burst_time;
-        process.turnarnd_time = curent_time - process.arr_time;
+        process.turnarnd_time = current_time - process.arr_time;
         process.wait_time = process.turnarnd_time - process.burst_time;
         process.is_completed = true;
       }
