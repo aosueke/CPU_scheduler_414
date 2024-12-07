@@ -24,24 +24,13 @@ public:
     }
 
     // Adds a process to a specific queue
-    void addProcess(const ProcessInfo& process, int queue_level) {
-        if (queue_level == 1) {
-            queue1.push_back(process); // Add to queue1
-        } else if (queue_level == 2) {
-            queue2.push_back(process); // Add to queue2
-        }
-    }
+    void addProcess(const ProcessInfo& process, int queue_level);
 
     // Executes the scheduling algorithm
-    void run() {
-        // Add your scheduling logic here (e.g., round robin for each queue)
-    }
+    void run();
 
     // Prints statistics about the scheduling
-    void printStats() {
-        std::cout << "Queue 1 size: " << queue1.size() << "\n";
-        std::cout << "Queue 2 size: " << queue2.size() << "\n";
-    }
+    void printStats();
 };
 
 #endif
