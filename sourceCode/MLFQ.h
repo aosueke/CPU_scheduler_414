@@ -5,7 +5,7 @@
 #include <vector>
 #include <queue>
 
-class Multilevel_Feedback_Queue{
+class Multilevel_Feedback_Queue_Scheduler{
 private:
     int timeQuantum1; // Queue 1 time quantum
     int timeQuantum2; // Queue 2 time quantum
@@ -15,7 +15,7 @@ private:
     std::vector<ProcessInfo> All_processes;
 
 public:
-    Multilevel_Feedback_Queue(int tq1, int tq2);
+    Multilevel_Feedback_Queue_Scheduler(int tq1, int tq2);
     void addProcess(const ProcessInfo& new_process);
     void run();
     void printStats();
