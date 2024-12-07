@@ -43,7 +43,42 @@ The **Advanced CPU Scheduler** simulates multiple CPU scheduling algorithms: Rou
    ```
 
 ---
+### **Use Cases**
 
+1. **Case 1: Testing Round Robin Scheduling**
+   - A user wants to simulate a Round Robin Scheduler with 5 processes, each with different burst times and arrival times.
+   - **Input:**
+     - Time quantum: 4
+     - Processes: `P1 (arrival=0, burst=10)`, `P2 (arrival=1, burst=5)`, `P3 (arrival=2, burst=8)`, `P4 (arrival=3, burst=6)`, `P5 (arrival=4, burst=7)`
+   - **Expected Outcome:**
+     - The processes are scheduled in a cyclic order with a time slice of 4 units.
+     - The program calculates average waiting, turnaround, and response times.
+
+2. **Case 2: Testing Priority Scheduling**
+   - A user wants to test priority-based scheduling (non-preemptive) with 4 processes.
+   - **Input:**
+     - Processes: `P1 (priority=2, arrival=0, burst=10)`, `P2 (priority=1, arrival=2, burst=6)`, `P3 (priority=3, arrival=4, burst=8)`, `P4 (priority=1, arrival=6, burst=5)`
+   - **Expected Outcome:**
+     - Processes are executed based on priority, and processes with the same priority are executed in the order of arrival time.
+
+3. **Case 3: Testing Multilevel Queue**
+   - A user assigns 6 processes to two separate queues (Queue 1: high priority, Queue 2: low priority).
+   - **Input:**
+     - Processes: `P1, P2, P3` in Queue 1, `P4, P5, P6` in Queue 2.
+     - Queue scheduling: Queue 1 executes before Queue 2.
+   - **Expected Outcome:**
+     - All processes in Queue 1 execute before Queue 2 begins.
+
+4. **Case 4: Testing Multilevel Feedback Queue**
+   - A user simulates 3 processes with a feedback mechanism for priority adjustment based on time quantum.
+   - **Input:**
+     - Time Quantum for Queue 1: 5, Queue 2: 10
+     - Processes: `P1 (arrival=0, burst=15)`, `P2 (arrival=2, burst=10)`, `P3 (arrival=4, burst=20)`
+   - **Expected Outcome:**
+     - Processes move between queues based on burst time and time quantum.
+     - Average waiting and turnaround times are calculated.
+
+---
 #### **Usage Examples**
 
 1. **Run Round Robin Scheduling:**
