@@ -13,7 +13,7 @@ void MultilevelQueueScheduler::addProcess(const ProcessInfo& process, int queue_
 void MultilevelQueueScheduler::run() {
   auto executeQueue = [](std::vector<ProcessInfo>& queue, int& current_time) {
     for (auto& process : queue) {
-      if (!process.completed) {
+      if (!process.is_completed) {
         //Simulate Execution
         process.response_time = current_time - process.arrival_time;
         current_time += process.burst_time;
