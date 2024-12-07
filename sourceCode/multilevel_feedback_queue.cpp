@@ -4,14 +4,14 @@
 int tq1 = 1;
 int tq2 = 2;
 
-Multilevel_Feedback_Queue::Multilevel_Feedback_Queue(int tq1, int tq2) : timeQuantum1(tq1), timeQuantum2(tq2) {}
+Multilevel_Feedback_Queue::MultilevelFeedbackQueueScheduler(int tq1, int tq2) : timeQuantum1(tq1), timeQuantum2(tq2) {}
 
 void Multilevel_Feedback_Queue::addProcess(const ProcessInfo& new_process) {
     All_processes.push_back(new_process);
     que1.push(&All_processes.back());
 }
 
-void Multilevel_Feedback_Queue::run() {
+void MultilevelFeedbackQueueScheduler::run() {
     int curr_time = 0; //current time
 
     auto execute_Queue = [&](std::queue<ProcessInfo*>& que, int timeQuantum) {
